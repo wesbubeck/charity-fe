@@ -85,10 +85,13 @@
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
   name: 'HelloWorld',
 
   data: () => ({
+    events: '',
     ecosystem: [
       {
         text: 'vuetify-loader',
@@ -140,5 +143,14 @@ export default {
       },
     ],
   }),
+  apollo: {
+    events: gql`{
+      events {
+        dateOfEvent
+        eventDetails
+        _id
+      }
+    }`,
+  },
 };
 </script>
